@@ -1,58 +1,35 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>SB Admin - Start Bootstrap Template</title>
-    <!-- Bootstrap core CSS-->
-    <link href="/resources/css/lib/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom fonts for this template-->
-    <link href="/resources/css/lib/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <!-- Custom styles for this template-->
-    <link href="/resources/css/lib/sb-admin.css" rel="stylesheet">
+    <title><spring:message code="login.page.header"/></title>
+    <jsp:include page="/WEB-INF/view/common/style_libs_fragment.jsp"/>
 </head>
 
 <body class="bg-dark">
 <div class="container">
     <div class="card card-login mx-auto mt-5">
-        <div class="card-header">Login</div>
-        <div class="card-body">
-            <form>
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input class="form-control" id="exampleInputEmail1" type="email" aria-describedby="emailHelp" placeholder="Enter email">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input class="form-control" id="exampleInputPassword1" type="password" placeholder="Password">
-                </div>
-                <div class="form-group">
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox"> Remember Password</label>
-                    </div>
-                </div>
-                <a class="btn btn-primary btn-block" href="index.html">Login</a>
-            </form>
-            <div class="text-center">
-                <a class="d-block small mt-3" href="register.html">Register an Account</a>
-                <a class="d-block small" href="forgot-password.html">Forgot Password?</a>
-            </div>
+        <div class="card-header" style="text-align: center">
+            <spring:message code="login.form.header"/>
+        </div>
+        <div class="card-body" style="text-align: center">
+            <a href="<c:url value="/oauth/facebook"/>" style="margin-right: 5px;">
+                <img src="/resources/images/app/social_networks/facebook_big.png" class="icon-button" style="border: none"/>
+            </a>
+            <a href="<c:url value="/oauth/vkcom"/>" style="margin-right: 5px;">
+                <img src="/resources/images/app/social_networks/vkontakte_big.png" class="icon-button" style="border: none"/>
+            </a>
+            <a href="<c:url value="/oauth/twitter"/>" style="margin-right: 5px;">
+                <img src="/resources/images/app/social_networks/twitter_big.png" class="icon-button" style="border: none"/>
+            </a>
         </div>
     </div>
 </div>
-<!-- Bootstrap core JavaScript-->
-<script src="/resources/js/lib/jquery.min.js"></script>
-<script src="/resources/js/lib/bootstrap.bundle.min.js"></script>
-<!-- Core plugin JavaScript-->
-<script src="/resources/js/lib/jquery.easing.min.js"></script>
+<jsp:include page="/WEB-INF/view/common/js_libs_fragment.jsp"/>
 </body>
 
 </html>
