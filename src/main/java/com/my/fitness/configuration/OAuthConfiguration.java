@@ -10,7 +10,7 @@ import org.springframework.social.facebook.connect.FacebookConnectionFactory;
  * OAuth2 configuration
  */
 @Configuration
-public class OAuth2Configuration {
+public class OAuthConfiguration {
 
     /**
      * Properties
@@ -24,7 +24,7 @@ public class OAuth2Configuration {
      * Connection factory registry bean
      * @return Connection factory registry
      */
-    @Bean(name = "connectionFactoryLocator")
+    @Bean
     public ConnectionFactoryRegistry connectionFactoryRegistry() {
         ConnectionFactoryRegistry registry = new ConnectionFactoryRegistry();
         /** Facebook */
