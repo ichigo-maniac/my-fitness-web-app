@@ -1,7 +1,9 @@
 package com.my.fitness.controllers.oauth2;
 
 import com.my.fitness.constants.FitnessWebAppConstants;
+import com.my.fitness.dto.AccountEntityDto;
 import com.my.fitness.enums.SocialNetworkType;
+import com.my.fitness.services.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.social.connect.support.ConnectionFactoryRegistry;
 import org.springframework.stereotype.Controller;
@@ -19,6 +21,12 @@ public class AbstractOAuth2Controller {
     protected ConnectionFactoryRegistry connectionRepository;
 
     /**
+     * Account service
+     */
+    @Autowired
+    private AccountService accountService;
+
+    /**
      * Authorize the user or create a new one
      * @param socialNetworkType Social network type
      * @param socialNetworkId Social network id
@@ -27,6 +35,7 @@ public class AbstractOAuth2Controller {
      * @return Redirect path
      */
     protected String authorizeUser(SocialNetworkType socialNetworkType, String socialNetworkId, String name, String email) {
+        AccountEntityDto account = accountService.getOrCreateAccount(socialNetworkId, socialNetworkType, name);
         return FitnessWebAppConstants.REDIRECT.HOME;
     }
 
