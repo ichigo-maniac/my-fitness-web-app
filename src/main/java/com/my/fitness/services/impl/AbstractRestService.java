@@ -10,6 +10,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
+import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
@@ -45,6 +46,18 @@ public abstract class AbstractRestService {
      */
     @Autowired
     private RestTemplate restTemplate;
+
+    /**
+     * Get for object
+     * @param serviceMethod Service method
+     * @param params Params
+     * @param objectClass Return object class
+     * @param <T>
+     * @return Return object
+     */
+    protected <T> T getForObject(String serviceMethod, MultiValueMap<String, Object> params, Class<T> objectClass) {
+        return restTemplate.getForObject(apiAppHost + serviceMethod, objectClass, params);
+    }
 
     /**
      * Post for object

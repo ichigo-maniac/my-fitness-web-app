@@ -14,6 +14,17 @@ import org.springframework.util.MultiValueMap;
 public class AccountServiceImpl extends AbstractRestService implements AccountService {
 
     /**
+     * Get account by uuid
+     * @param accountUUID Account uuid
+     * @return Account
+     */
+    @Override
+    public AccountEntityDto getAccountByUUID(String accountUUID) {
+        MultiValueMap<String, Object> params = new LinkedMultiValueMap<>();
+        return getForObject("/account/get_account/" + accountUUID, params, AccountEntityDto.class);
+    }
+
+    /**
      * Get or create an account
      * @param socialNetworkId Social network id
      * @param socialNetworkType Social network type

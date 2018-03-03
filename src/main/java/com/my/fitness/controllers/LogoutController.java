@@ -6,12 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import javax.servlet.ServletException;
 
 /**
- * Index page controller
+ * Logout controller
  */
 @Controller
-public class IndexPageController {
+public class LogoutController {
 
     /**
      * User facade
@@ -20,14 +21,13 @@ public class IndexPageController {
     private UserFacade userFacade;
 
     /**
-     * Index page
-     * @return View template
+     * Log out
+     * @return Redirect path
+     * @throws ServletException Servlet exception
      */
-    @RequestMapping(method = RequestMethod.GET, value = "/")
-    public String indexPage() {
-        if (!userFacade.isCurrentUserAnonymous()) {
-            return FitnessWebAppConstants.REDIRECT.DASHBOARD;
-        }
-        return "index";
+    @RequestMapping(method = RequestMethod.GET, value = "/logout")
+    public String logout() throws ServletException {
+        userFacade.logOutCurrentUser();
+        return FitnessWebAppConstants.REDIRECT.HOME;
     }
 }
