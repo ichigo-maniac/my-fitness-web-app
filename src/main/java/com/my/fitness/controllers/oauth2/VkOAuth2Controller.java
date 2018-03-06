@@ -88,6 +88,7 @@ public class VkOAuth2Controller extends AbstractOAuth2Controller {
         /** Load data */
         String url = URIBuilder.fromUri(oauthMethod + USER_GET_METHOD)
                 .queryParam("access_token", accessGrant.getAccessToken())
+                .queryParam("version", "5.73")
                 .build().toString();
         String result = restTemplate.getForObject(url, String.class);
         JSONObject jsonObject = new JSONObject(result);
