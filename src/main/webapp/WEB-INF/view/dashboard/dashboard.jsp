@@ -6,7 +6,7 @@
 <html lang="en">
 
 <head>
-    <title><spring:message code="login.page.header"/></title>
+    <title><spring:message code="dashboard.page.header"/></title>
     <jsp:include page="/WEB-INF/view/common/style_libs_fragment.jsp"/>
 </head>
 
