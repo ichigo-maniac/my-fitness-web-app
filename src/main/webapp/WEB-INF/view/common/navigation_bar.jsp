@@ -12,10 +12,9 @@
                 <spring:message code="navbar.charts.label"/>
             </span>
         </a>
-        <ul class="sidenav-second-level" id="collapseComponents">
+        <ul class="sidenav-second-level show" id="collapseComponents">
             <li>
                 <a>
-                    <i class="fa fa-fw fa-area-chart"></i>
                     <spring:message code="navbar.charts.weight.label"/>
                 </a>
             </li>
