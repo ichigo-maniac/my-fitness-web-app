@@ -23,13 +23,23 @@
             </li>
             <li class="breadcrumb-item active">Blank Page</li>
         </ol>
-        <div class="row">
-            <div class="col-12">
-                <h1>Blank</h1>
 
-                <p>This is an example of a blank page that you can use as a starting point for creating new ones.</p>
+        <!-- Area Chart Example-->
+        <div class="card mb-3">
+            <div class="card-header">
+                <i class="fa fa-area-chart"></i> Area Chart Example</div>
+            <div class="card-body">
+                <canvas id="myAreaChart" width="100%" height="30"></canvas>
             </div>
+            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
         </div>
+        <%--<div class="row">--%>
+            <%--<div class="col-12">--%>
+                <%--<h1>Blank</h1>--%>
+
+                <%--<p>This is an example of a blank page that you can use as a starting point for creating new ones.</p>--%>
+            <%--</div>--%>
+        <%--</div>--%>
     </div>
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
@@ -47,7 +57,9 @@
 
     <jsp:include page="/WEB-INF/view/common/logout_modal_fragment.jsp"/>
     <jsp:include page="/WEB-INF/view/common/js_libs_fragment.jsp"/>
+    <script src="/resources/js/lib/Chart.min.js"></script>
     <script src="/resources/js/lib/sb-admin.js"></script>
+    <script src="/resources/js/lib/sb-admin-charts.js"></script>
 </div>
 </body>
 
