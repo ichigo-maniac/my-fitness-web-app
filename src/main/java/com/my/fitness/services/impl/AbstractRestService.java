@@ -10,9 +10,9 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
-import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
@@ -56,7 +56,18 @@ public abstract class AbstractRestService {
      * @return Return object
      */
     protected <T> T getForObject(String serviceMethod, MultiValueMap<String, Object> params, Class<T> objectClass) {
-        return restTemplate.getForObject(apiAppHost + serviceMethod, objectClass, params);
+        UriComponentsBuilder builder = UriComponentsBuilder.fromPath(serviceMethod);
+        for (String key : params.keySet()) {
+            if (!CollectionUtils.isEmpty(params.get(key))) {
+                if (params.get(key).size() > 1) {
+                    builder.queryParam(key, params.get(key));
+                } else {
+                    Object first = params.getFirst(key);
+                    builder.queryParam(key, first);
+                }
+            }
+        }
+        return restTemplate.getForObject(apiAppHost + builder.build().toString(), objectClass, params);
     }
 
     /**
