@@ -6,5 +6,6 @@
 
 <link href="/resources/css/app/style.css" rel="stylesheet">
 <link href="/resources/css/lib/bootstrap.min.css" rel="stylesheet">
+<link href="/resources/css/lib/bootstrap-datepicker.min.css" rel="stylesheet"/>
 <link href="/resources/css/lib/font-awesome.css" rel="stylesheet" type="text/css">
 <link href="/resources/css/lib/sb-admin.css" rel="stylesheet">
